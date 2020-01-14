@@ -1,13 +1,17 @@
-public class DataPoint {
+import java.util.Comparator;
+
+public class DataPoint{
     public int heartBeat;
     public int upperBPNumber;
     public int lowerBPNumber;
+    public int time;
     public String musicGenre;
 
     public DataPoint(int heartBeat, int upperBPNumber, int lowerBPNumber, String musicGenre) {
         this.heartBeat = heartBeat;
         this.upperBPNumber = upperBPNumber;
         this.lowerBPNumber = lowerBPNumber;
+        this.time = time;
         this.musicGenre = musicGenre;
     }
 
@@ -38,6 +42,14 @@ public class DataPoint {
         this.lowerBPNumber = lowerBPNumber;
     }
 
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
     public String getMusicGenre() {
         return musicGenre;
     }
@@ -46,4 +58,30 @@ public class DataPoint {
         this.musicGenre = musicGenre;
     }
     //endregion
+
+    //==================================================================================================================
+}
+
+class CompareHeartBeat implements Comparator<DataPoint>{
+
+    @Override
+    public int compare(DataPoint o1, DataPoint o2) {
+        return o1.heartBeat - o2.heartBeat;
+    }
+}
+
+class CompareBloodPressure implements Comparator<DataPoint>{
+
+    @Override
+    public int compare(DataPoint o1, DataPoint o2) {
+        return 0;
+    }
+}
+
+class CompareTime implements Comparator<DataPoint>{
+
+    @Override
+    public int compare(DataPoint o1, DataPoint o2) {
+        return o1.time - o2.time;
+    }
 }
