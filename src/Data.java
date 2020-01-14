@@ -12,7 +12,27 @@ public class Data {
 
     //==================================================================================================================
 
-    public void fillWithRandom(){
+    public void sort(Comparator<DataPoint> comparator){
+        dataPoints.sort(comparator);
+    }
 
+    public void fillWithRandom(int numOfDataPoints){
+        String[] genres = {"rock", "pop", "rap", "country", "classical"};
+        for (int i = 0 ; i < numOfDataPoints ; i++) {
+            dataPoints.add(new DataPoint((int)(Math.random() * 150 + 50),
+                                        (int)(Math.random() * 50 + 100),
+                                        (Math.random() * 24),
+                                        genres[(int)(Math.random() * genres.length)]) );
+        }
+    }
+
+    public String toString(){
+        String end = "";
+
+        for(DataPoint dataPoint : dataPoints){
+            end += String.format("%s%n", dataPoint.toString());
+        }
+
+        return end;
     }
 }

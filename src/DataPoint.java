@@ -2,15 +2,13 @@ import java.util.Comparator;
 
 public class DataPoint{
     public int heartBeat;
-    public int upperBPNumber;
-    public int lowerBPNumber;
-    public int time;
+    public int bloodPressure;
+    public double time;
     public String musicGenre;
 
-    public DataPoint(int heartBeat, int upperBPNumber, int lowerBPNumber, String musicGenre) {
+    public DataPoint(int heartBeat, int bloodPressure, double time, String musicGenre) {
         this.heartBeat = heartBeat;
-        this.upperBPNumber = upperBPNumber;
-        this.lowerBPNumber = lowerBPNumber;
+        this.bloodPressure = bloodPressure;
         this.time = time;
         this.musicGenre = musicGenre;
     }
@@ -27,22 +25,14 @@ public class DataPoint{
     }
 
     public int getUpperBPNumber() {
-        return upperBPNumber;
+        return bloodPressure;
     }
 
-    public void setUpperBPNumber(int upperBPNumber) {
-        this.upperBPNumber = upperBPNumber;
+    public void setUpperBPNumber(int bloodPressure) {
+        this.bloodPressure = bloodPressure;
     }
 
-    public int getLowerBPNumber() {
-        return lowerBPNumber;
-    }
-
-    public void setLowerBPNumber(int lowerBPNumber) {
-        this.lowerBPNumber = lowerBPNumber;
-    }
-
-    public int getTime() {
+    public double getTime() {
         return time;
     }
 
@@ -60,6 +50,10 @@ public class DataPoint{
     //endregion
 
     //==================================================================================================================
+
+    public String toString(){
+        return heartBeat + " - " + bloodPressure + " - " + time;
+    }
 }
 
 class CompareHeartBeat implements Comparator<DataPoint>{
@@ -74,7 +68,7 @@ class CompareBloodPressure implements Comparator<DataPoint>{
 
     @Override
     public int compare(DataPoint o1, DataPoint o2) {
-        return 0;
+        return o1.bloodPressure - o2.bloodPressure;
     }
 }
 
@@ -82,6 +76,6 @@ class CompareTime implements Comparator<DataPoint>{
 
     @Override
     public int compare(DataPoint o1, DataPoint o2) {
-        return o1.time - o2.time;
+        return (int) (Integer.MAX_VALUE * (o1.time - o2.time));
     }
 }
