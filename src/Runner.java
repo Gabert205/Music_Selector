@@ -3,6 +3,7 @@ public class Runner {
         Data data = new Data();
         data.fillWithRandom(1000);
         data.sort(new CompareTime());
+        data.draw();
         System.out.println(data);
     }
 }
