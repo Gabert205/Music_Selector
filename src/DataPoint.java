@@ -52,7 +52,7 @@ public class DataPoint{
     //==================================================================================================================
 
     public String toString(){
-        return heartBeat + " - " + bloodPressure + " - " + time;
+        return heartBeat + " - " + bloodPressure + " - " + time + " - " + musicGenre;
     }
 }
 
@@ -77,5 +77,13 @@ class CompareTime implements Comparator<DataPoint>{
     @Override
     public int compare(DataPoint o1, DataPoint o2) {
         return (int) (Integer.MAX_VALUE * (o1.time - o2.time));
+    }
+}
+
+class CompareGenre implements Comparator<DataPoint>{
+
+    @Override
+    public int compare(DataPoint o1, DataPoint o2) {
+        return o1.musicGenre.compareTo(o2.musicGenre);
     }
 }
