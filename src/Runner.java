@@ -6,17 +6,17 @@ public class Runner {
         Scanner scan = new Scanner(System.in);
         Data data = new Data("Data File");
         Algorithm algo = new Algorithm(data);
-        data.draw();
-        System.out.println("heartbeat");
-        int heartBeat = scan.nextInt();
-        System.out.println("bloodpressure");
-        int bloodPressure = scan.nextInt();
-        System.out.println("time");
-        double time = scan.nextDouble();
-        System.out.println(algo.getGenre(heartBeat, bloodPressure, time));
 
-        //121/70
-        //71
-        //15.1
+        System.out.println("Current Heartbeat : ");
+        int heartBeat = scan.nextInt();
+
+        System.out.println("\nCurrent Blood Pressure : ");
+        int bloodPressure = scan.nextInt();
+
+        System.out.println("\nCurrent Time : ");
+        double time = scan.nextDouble();
+
+        System.out.println("\nThe best music to listen to right now is : ");
+        System.out.println(algo.getGenre(heartBeat, bloodPressure, time));
     }
 }
